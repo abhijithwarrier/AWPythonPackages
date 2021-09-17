@@ -1,6 +1,6 @@
-# REPO CONTAINING CUSTOM PACKAGES FOR SOME UTILITY FUNCTIONS
+# THIS REPO CONTAINING CUSTOM PACKAGES FOR SOME UTILITY FUNCTIONS
 
-# ALL THE PACKAGE ARE DEVELOPED IN PYTHON PROGRAMMING LANGUAGE
+## These packages are useful for performing day-to-day utility functions. All the packages that are going to be uploaded into this Repository are developed in PYTHON PROGRAMMING LANGUAGE.
 
 # How to install?
 To install a package follow one of the 2 methods: <br>
