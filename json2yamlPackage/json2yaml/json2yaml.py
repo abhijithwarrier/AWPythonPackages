@@ -4,11 +4,11 @@ import argparse
 import sys
 
 def run():
-    argParse = argparse.ArgumentParser(description="CONVERT JSON FILE TO YAML FILE")
+    argParse = argparse.ArgumentParser(description="CONVERT JSON TO YAML & YAML TO JSON")
     argParse.add_argument('-u', '--usage', help="COMMAND USAGE FORMAT")
     req_args_grp = argParse.add_argument_group('REQUIRED ARGUMENTS')
-    req_args_grp.add_argument('-j', '--json', help="JSON FILE NAME", required=True)
-    req_args_grp.add_argument('-y', '--yaml', help="YAML FILE NAME", required=True)
+    req_args_grp.add_argument('-j', '--json', help="JSON FILE", required=True)
+    req_args_grp.add_argument('-y', '--yaml', help="YAML FILE", required=True)
     req_args_grp.add_argument('-m', '--mode', help="CONVERSION MODE", choices=['j2y','json2yaml', 'y2j', 'yaml2json'], required=True)
 
     if len(sys.argv) == 1:
