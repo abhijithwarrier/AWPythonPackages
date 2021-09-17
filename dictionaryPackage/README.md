@@ -6,7 +6,7 @@ When the command is run by passing an input word, the meaning of the entered tex
 # Overview of this Package:
 This package is built using mainly PyDictionary library of Python.
 
-## PyDictionary Library
+## PyDictionary Library:
 PyDictionary is a Dictionary Module for Python 2/3 to get meanings, translations, synonyms and Antonyms of words. It uses WordNet for getting meanings, Google for translations, and synonym.com for getting synonyms and antonyms. This module uses Python Requests, BeautifulSoup4 and goslate as dependencies
 
 # Package Requirements:
