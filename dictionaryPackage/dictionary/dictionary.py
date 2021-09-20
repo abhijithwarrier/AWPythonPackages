@@ -2,6 +2,16 @@ from PyDictionary import PyDictionary
 import argparse
 import sys
 
+def word_meaning(word_input):
+    dictionary_object = PyDictionary()
+    word_dict_meaning = dictionary_object.meaning(word_input)
+    meaning_details = ""
+    if "Noun" in word_dict_meaning:
+        meaning_details += "Noun:\n- " + "\n- ".join(word_dict_meaning['Noun'])
+    if "Verb" in word_dict_meaning:
+        meaning_details += "\n\nVerb:\n- " + "\n- ".join(word_dict_meaning['Verb'])
+    print(meaning_details)
+
 def run():
     argParse = argparse.ArgumentParser(description="GET THE MEANING OF ANY ENTERED WORD")
     argParse.add_argument('-u', '--usage', help="COMMAND USAGE FORMAT")
@@ -20,15 +30,7 @@ def run():
     elif '-w' in sys.argv or '--word' in sys.argv:
         arguments = argParse.parse_args()
         word_input = arguments.word
-        dictionaryObject = PyDictionary()
-        wordMeaning = dictionaryObject.meaning(word_input)
-        meaningDetails = ""
-        if "Noun" in wordMeaning:
-            meaningDetails += "Noun:\n- " + "\n- ".join(wordMeaning['Noun'])
-        if "Verb" in wordMeaning:
-            meaningDetails += "\n\nVerb:\n- " + "\n- ".join(wordMeaning['Verb'])
-        print(meaningDetails)
-
+        word_meaning(word_input)
 
 if __name__ == '__main__':
     run()
