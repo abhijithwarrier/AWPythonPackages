@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pywiki',
-    version='1.0.0',
+    version='1.0.1',
     description='OPENS WIKIPEDIA PAGE OF THE ENTERED TERM',
     url='https://github.com/abhijithwarrier',
     author='Abhijith Warrier',
