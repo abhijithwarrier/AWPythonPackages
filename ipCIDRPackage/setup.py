@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pycidr',
-    version='1.0.0',
+    version='1.0.1',
     description='IPv4 CIDR CALCULATOR',
     url='https://github.com/abhijithwarrier',
     author='Abhijith Warrier',
