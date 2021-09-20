@@ -3,6 +3,10 @@ import wikipedia
 import argparse
 import sys
 
+def wiki_search(search_input):
+    wiki_url = wikipedia.page(search_input).url
+    webbrowser.open_new_tab(wiki_url)
+
 def run():
     argParse = argparse.ArgumentParser(description="OPENING WIKIPEDIA PAGE OF THE ENTERED INPUT")
     argParse.add_argument('-u', '--usage', help="COMMAND USAGE FORMAT")
@@ -21,8 +25,7 @@ def run():
     elif '-i' in sys.argv or '--input' in sys.argv:
         arguments = argParse.parse_args()
         wiki_input = arguments.input
-        wiki_url = wikipedia.page(wiki_input).url
-        webbrowser.open_new_tab(wiki_url)
+        wiki_search(wiki_input)
 
 if __name__ == '__main__':
     run()
