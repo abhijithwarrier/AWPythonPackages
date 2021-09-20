@@ -3,6 +3,32 @@ import yaml
 import argparse
 import sys
 
+def json2yaml(json_input, yaml_input):
+    json_data = json.load(open(json_input, 'r'))
+    yaml_file = open(yaml_input, 'w')
+    yaml.safe_dump(json_data, yaml_file, allow_unicode=True, default_flow_style=False)
+
+    yaml_data = yaml.load_all(open(yaml_input, 'r'), Loader=yaml.FullLoader)
+    print("\n" + yaml.dump_all(yaml_data))
+    print("\n############################################################################")
+    print("\nOUTPUT: JSON FILE " + json_input.split('/')[-1] + " CONVERTED TO YAML FILE " + yaml_input.split('/')[-1] + "\n")
+    print("############################################################################\n")
+
+def yaml2json(json_input, yaml_input):
+    yaml_data = yaml.safe_load(open(yaml_input, 'r'))
+    # print(yaml_data)
+    json_file = open(json_input, 'w')
+    json.dump(yaml_data, json_file, indent=2)
+    json_file.close()
+
+    json_data = open(json_input, 'r').read()
+    print("\n" + json_data)
+
+    print("\n############################################################################")
+    print("\nOUTPUT: YAML FILE " + yaml_input.split('/')[-1] + " CONVERTED TO JSON FILE " + json_input.split('/')[
+        -1] + "\n")
+    print("############################################################################\n")
+
 def run():
     argParse = argparse.ArgumentParser(description="CONVERT JSON TO YAML & YAML TO JSON")
     argParse.add_argument('-u', '--usage', help="COMMAND USAGE FORMAT")
@@ -26,30 +52,9 @@ def run():
         yaml_input = arguments.yaml
         mode_input = arguments.mode
         if 'j2y' in mode_input or 'json2yaml' in mode_input:
-            json_data = json.load(open(json_input, 'r'))
-            yaml_file = open(yaml_input, 'w')
-            yaml.safe_dump(json_data, yaml_file, allow_unicode=True, default_flow_style=False)
-
-            yaml_data = yaml.load_all(open(yaml_input, 'r'), Loader=yaml.FullLoader)
-            print("\n"+yaml.dump_all(yaml_data))
-            print("\n############################################################################")
-            print("\nOUTPUT: JSON FILE " + json_input.split('/')[-1] + " CONVERTED TO YAML FILE " + yaml_input.split('/')[-1] + "\n")
-            print("############################################################################\n")
-
+            json2yaml(json_input, yaml_input)
         elif 'y2j' in mode_input or 'yaml2json' in mode_input:
-            yaml_data = yaml.safe_load(open(yaml_input, 'r'))
-            # print(yaml_data)
-            json_file = open(json_input, 'w')
-            json.dump(yaml_data, json_file, indent=2)
-            json_file.close()
-
-            json_data = open(json_input,'r').read()
-            print("\n" + json_data)
-
-            print("\n############################################################################")
-            print("\nOUTPUT: YAML FILE " + yaml_input.split('/')[-1] + " CONVERTED TO JSON FILE " + json_input.split('/')[-1] + "\n")
-            print("############################################################################\n")
-
+            yaml2json(json_input, yaml_input)
 
 if __name__ == '__main__':
     run()
