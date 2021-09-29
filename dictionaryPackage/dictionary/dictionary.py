@@ -3,6 +3,10 @@ import argparse
 import sys
 
 def word_meaning(word_input):
+    """
+    This method takes the word as the parameter. The input word is then passed to the
+    PyDictionary() Object to obtain the meaning of the input word
+    """
     dictionary_object = PyDictionary()
     word_dict_meaning = dictionary_object.meaning(word_input)
     meaning_details = ""
