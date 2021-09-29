@@ -3,6 +3,12 @@ import argparse
 import sys
 
 def calculate_cidr(ip_address):
+    """
+    This method takes the ip_address as the user-input. The IP Address is passed as the
+     argument to the ip_interface() method of the ipaddress library.
+     This method calculates network, first & last, broadcast IP Addresses.
+     Number of usable IPs, Wildcard, Subnet are also calculated.
+    """
     ip_address = ipaddress.ip_interface(ip_address)
     network_address = ip_address.network
     first_ip_address = list(network_address.hosts())[0]
